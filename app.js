@@ -26,7 +26,6 @@ window.onload = function getJSON (){
                 fetch(characters).then(function(response){
                     return response.json();
                 }).then(function(character){
-                    console.log(character)
                     let characterName = document.createElement("H5");
                     characterName.innerHTML += 'Character Name: ';
                     characterName.innerHTML += character.name;
