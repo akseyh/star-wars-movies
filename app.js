@@ -26,9 +26,20 @@ window.onload = function getJSON (){
                 fetch(characters).then(function(response){
                     return response.json();
                 }).then(function(character){
-                    let cardText = document.createElement("H6");
-                    cardText.innerHTML = character.name;
-                    createCardBody.appendChild(cardText);
+                    console.log(character)
+                    let characterName = document.createElement("H5");
+                    characterName.innerHTML += 'Character Name: ';
+                    characterName.innerHTML += character.name;
+                    createCardBody.appendChild(characterName);
+                    let characterProp = document.createElement("H6");
+                    characterProp.style = 'color: gray; font-style: italic;'
+                    characterProp.innerHTML += 'Heigth: ';
+                    characterProp.innerHTML += character.height;
+                    characterProp.innerHTML += ', Eye Color: ';
+                    characterProp.innerHTML += character.eye_color;
+                    characterProp.innerHTML += ', Hair Color: ';
+                    characterProp.innerHTML += character.hair_color;
+                    createCardBody.appendChild(characterProp);
                 })
             });
         });
