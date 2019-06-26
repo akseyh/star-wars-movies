@@ -1,4 +1,4 @@
-window.onload = function getJSON (){
+window.onload = ()  => {
     fetch("https://swapi.co/api/films/?format=json").then(function(response){
         return response.json();
     }).then(function(movies){
@@ -45,7 +45,7 @@ window.onload = function getJSON (){
     })
 }
 
-function openCardHeader(myDiv) {
+openCardHeader = (myDiv) => {
     isOpen = myDiv.childNodes[1].style.display != 'none' ? true : false;
 
     if(isOpen) {
