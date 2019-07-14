@@ -43,6 +43,10 @@ window.onload = ()  => {
             });
         });
     })
+
+    //Loading animation delete
+    if(document.getElementsByClassName('card-body'))
+        document.getElementById('loader').style.display = 'none';
 }
 
 openCardHeader = (myDiv) => {
