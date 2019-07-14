@@ -18,7 +18,7 @@ class App extends React.Component {
                     <Header />
                 </Col>
                 <Col>
-                    <Route component={Home} path={"/home"} />
+                    <Route component={Home} exact path={"/"} />
                     <Route component={Movies} path={"/movies"} />
                     <Route component={Peoples} path={"/peoples"} />                          
                     <Route component={Planets} path={"/planets"} />                          

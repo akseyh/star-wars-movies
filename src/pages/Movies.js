@@ -1,30 +1,41 @@
 import React from 'react';
+import MovieItem from '../components/MovieItem';
+import {Spinner} from 'react-bootstrap';
 
 class Movies extends React.Component {
     state = {
-        movies: [{
-            episodeId: Number,
-            title: String,
-        }]
+        movies: []
     }
 
     getMoviesList() {
-        fetch("https://swapi.co/api/films/?format=json")
-            .then((response) => response.json() )
-            .then((movies) => movies.results )
-            .then((moviesList) => {
-                moviesList.forEach(item => {
-                    console.log(item);
-                });
+        return new Promise((resolve, reject) => {
+            fetch("https://swapi.co/api/films/?format=json")
+                .then(reply => resolve(reply.json()))
+        })
+    }
+    
+    componentWillMount() {
+        this.getMoviesList()
+            .then(reply => {
+                this.setState({
+                    movies: reply.results
+                })
             })
-            .catch(error => console.log(error))
     }
 
     render() {
-        this.getMoviesList();
-        console.log(this.state);
+        const { movies } = this.state;
+        console.log(movies);
         return (
-            <div>Movies</div>
+            <div>
+                {movies.length 
+                ? movies.map((movie, index) => 
+                    <MovieItem
+                        key={index} 
+                        title={movie.title}
+                    /> ) 
+                : <Spinner animation="grow"/>}
+            </div>
         );
     }
 }

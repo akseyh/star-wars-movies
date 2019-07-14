@@ -7,7 +7,7 @@ import logo from '../img/star-wars-logo.png'
 function Header () {
     return(
         <Navbar bg="dark" variant="dark" expand="lg">
-                <Link to={'/home'} className="navbar-brand"> 
+                <Link to={'/'} className="navbar-brand"> 
                     <Image src={logo} width="100px"/>
                 </ Link>
                 <Navbar.Collapse id="basic-navbar-nav">
