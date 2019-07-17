@@ -7,20 +7,22 @@ class Starships extends React.Component {
         starships: []
     }
 
-    getStarshipsList() {
+    getStarshipsList(page) {
         return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/starships/?format=json")
+            fetch("https://swapi.co/api/starships/?page=" + page)
                 .then(reply => resolve(reply.json()))
         })
     }
     
     componentWillMount() {
-        this.getStarshipsList()
+        for(let i=1; i<5; i++){
+            this.getStarshipsList(i)
             .then(reply => {
-                this.setState({
-                    starships: reply.results
-                })
+                this.setState(prevState => ({
+                    starships: [...prevState.starships, ...reply.results]
+                }))
             })
+        }
     }
 
     render() {

@@ -7,20 +7,22 @@ class Peoples extends React.Component {
         peoples: []
     }
 
-    getPeoplesList() {
+    getPeoplesList(page) {
         return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/people/?format=json")
+            fetch("https://swapi.co/api/people/?page=" + page)
                 .then(reply => resolve(reply.json()))
         })
     }
     
     componentWillMount() {
-        this.getPeoplesList()
+        for(let i=1; i<10; i++){
+            this.getPeoplesList(i)
             .then(reply => {
-                this.setState({
-                    peoples: reply.results
-                })
+                this.setState(prevState => ({ 
+                    peoples: [...prevState.peoples, ...reply.results] 
+                }));
             })
+        } 
     }
 
     render() {

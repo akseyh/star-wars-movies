@@ -17,9 +17,9 @@ class Movies extends React.Component {
     componentWillMount() {
         this.getMoviesList()
             .then(reply => {
-                this.setState({
-                    movies: reply.results
-                })
+                this.setState(prevState => ({ 
+                    movies: [...prevState.movies, ...reply.results] 
+                }));
             })
     }
 
