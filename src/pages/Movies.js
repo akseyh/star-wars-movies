@@ -27,7 +27,7 @@ class Movies extends React.Component {
         const { movies } = this.state;
         console.log(movies);
         return (
-            <div>
+            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {movies.length 
                 ? movies.map((movie, index) => 
                     <MovieItem

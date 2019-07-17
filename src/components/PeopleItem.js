@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-class MovieItem extends React.Component {
+class PeopleItem extends React.Component {
     render() {
-        const {title} = this.props;
+        const {name} = this.props;
         return(
             <Card  
                 bg="dark"
@@ -11,11 +11,11 @@ class MovieItem extends React.Component {
                 style={{margin: "5px", width: "10rem", height: "10rem", float: "left"}}
             >
                 <Card.Body>
-                <Card.Title>{title}</Card.Title>
+                <Card.Title>{name}</Card.Title>
                 </Card.Body>
             </Card>
         );
     }
 }
 
-export default MovieItem;
+export default PeopleItem;
