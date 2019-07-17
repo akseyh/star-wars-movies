@@ -1,5 +1,5 @@
 import React  from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {HashRouter, Route} from 'react-router-dom';
 import { Container, Col } from 'react-bootstrap';
 
 import Header from './components/Header';
@@ -13,18 +13,18 @@ class App extends React.Component {
     render() {
         return(
             <Container>
-                <BrowserRouter>
-                <Col>
-                    <Header />
-                </Col>
-                <Col>
-                    <Route component={Home} exact path={"/"} />
-                    <Route component={Movies} path={"/movies"} />
-                    <Route component={Peoples} path={"/peoples"} />                          
-                    <Route component={Planets} path={"/planets"} />                          
-                    <Route component={Starships} path={"/starships"} />                          
-                </Col>
-                </BrowserRouter>
+                <HashRouter>
+                    <Col>
+                        <Header />
+                    </Col>
+                    <Col>
+                        <Route component={Home} exact path={"/"} />
+                        <Route component={Movies} path={"/movies"} />
+                        <Route component={Peoples} path={"/peoples"} />                          
+                        <Route component={Planets} path={"/planets"} />                          
+                        <Route component={Starships} path={"/starships"} />                          
+                    </Col>
+                </HashRouter>
             </Container>
         );
     }
