@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "91dabc53803ed2b2056a8474f9782d8d",
+    "revision": "af1cfd1c0366a3d0469164f886db8e0d",
     "url": "/star-wars-movies/index.html"
   },
   {
-    "revision": "b276126f1a7e1deefd6b",
-    "url": "/star-wars-movies/static/js/2.81286991.chunk.js"
+    "revision": "5568ac7c3e347f296055",
+    "url": "/star-wars-movies/static/js/2.4548ba84.chunk.js"
   },
   {
-    "revision": "1da10de81453238a1a41",
-    "url": "/star-wars-movies/static/js/main.ac367720.chunk.js"
+    "revision": "e009cbca03cd7e28dc42",
+    "url": "/star-wars-movies/static/js/main.b8964359.chunk.js"
   },
   {
     "revision": "4c02cc53253cbdb3155f",
