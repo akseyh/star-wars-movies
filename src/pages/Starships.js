@@ -7,27 +7,20 @@ class Starships extends React.Component {
         starships: []
     }
 
-    getStarshipsList(page) {
-        return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/starships/?page=" + page)
-                .then(reply => resolve(reply.json()))
-        })
-    }
-    
-    componentWillMount() {
-        for(let i=1; i<5; i++){
-            this.getStarshipsList(i)
-            .then(reply => {
-                this.setState(prevState => ({
-                    starships: [...prevState.starships, ...reply.results]
-                }))
-            })
+    async componentDidMount() {
+        const axios = require('axios');
+        // for all api page
+        for(let page=1; page<5; page++){
+            const res = await axios.get("https://swapi.co/api/starships/?page=" + page);
+            this.setState(prevState => ({ 
+                //api format is res.data.results
+                starships: [...prevState.starships, ...res.data.results] 
+            }));
         }
     }
 
     render() {
         const { starships } = this.state;
-        console.log(starships);
         return (
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {starships.length 

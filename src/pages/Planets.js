@@ -7,27 +7,20 @@ class Planets extends React.Component {
         planets: []
     }
 
-    getPlanetsList(page) {
-        return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/planets/?page=" + page)
-                .then(reply => resolve(reply.json()))
-        })
-    }
-    
-    componentWillMount() {
-        for(let i=1; i<8; i++){
-            this.getPlanetsList(i)
-            .then(reply => {
-                this.setState(prevState => ({ 
-                    planets: [...prevState.planets, ...reply.results] 
-                }));
-            })
-        } 
+    async componentDidMount() {
+        const axios = require('axios');
+        // for all api page
+        for(let page=1; page<8; page++){
+            const res = await axios.get("https://swapi.co/api/planets/?page=" + page);
+            this.setState(prevState => ({ 
+                //api format is res.data.results
+                planets: [...prevState.planets, ...res.data.results] 
+            }));
+        }
     }
 
     render() {
         const { planets } = this.state;
-        console.log(planets);
         return (
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {planets.length 

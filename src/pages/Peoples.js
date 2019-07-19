@@ -7,27 +7,19 @@ class Peoples extends React.Component {
         peoples: []
     }
 
-    getPeoplesList(page) {
-        return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/people/?page=" + page)
-                .then(reply => resolve(reply.json()))
-        })
-    }
-    
-    componentWillMount() {
-        for(let i=1; i<10; i++){
-            this.getPeoplesList(i)
-            .then(reply => {
-                this.setState(prevState => ({ 
-                    peoples: [...prevState.peoples, ...reply.results] 
-                }));
-            })
-        } 
+    async componentDidMount() {
+        const axios = require('axios');
+        // for all api page
+        for(let page=1; page<10; page++){
+            const res = await axios.get("https://swapi.co/api/people/?page=" + page);
+            this.setState(prevState => ({ 
+                peoples: [...prevState.peoples, ...res.data.results] 
+            }));
+        }
     }
 
     render() {
         const { peoples } = this.state;
-        console.log(peoples);
         return (
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {peoples.length 
@@ -35,6 +27,7 @@ class Peoples extends React.Component {
                     <PeopleItem
                         key={index} 
                         name={people.name}
+                        id={index+1}
                     /> ) 
                 : <Spinner animation="grow"/>}
             </div>

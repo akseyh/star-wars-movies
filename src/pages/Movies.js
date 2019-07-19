@@ -7,36 +7,27 @@ class Movies extends React.Component {
         movies: []
     }
 
-    getMoviesList() {
-        return new Promise((resolve, reject) => {
-            fetch("https://swapi.co/api/films/?format=json")
-                .then(reply => resolve(reply.json()))
-        })
-    }
-    
-    componentWillMount() {
-        this.getMoviesList()
-            .then(reply => {
-                this.setState(prevState => ({ 
-                    movies: [...prevState.movies, ...reply.results] 
-                }));
-            })
+    async componentDidMount() {
+        const axios = require('axios');
+        const res = await axios.get('https://swapi.co/api/films/?format=json');
+        this.setState(prevState => ({ 
+            movies: [...prevState.movies, ...res.data.results] 
+        }));
     }
 
     render() {
         const { movies } = this.state;
-        console.log(movies);
         return (
-            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                {movies.length 
-                ? movies.map((movie, index) => 
-                    <MovieItem
-                        key={index} 
-                        title={movie.title}
-                    /> ) 
-                : <Spinner animation="grow"/>}
-            </div>
-        );
+                <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+                    {movies.length 
+                    ? movies.map((movie, index) =>
+                        <MovieItem
+                            key={index} 
+                            data={movie}
+                        />)
+                    : <Spinner animation="grow"/>}
+                </div>
+        );  
     }
 }
 
