@@ -1,6 +1,7 @@
 import React from 'react';
-import StarshipItem from '../components/StarshipItem'
 import {Spinner} from 'react-bootstrap';
+
+import CardItem from '../components/CardItem';
 
 class Starships extends React.Component {
     state = {
@@ -25,9 +26,9 @@ class Starships extends React.Component {
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {starships.length 
                 ? starships.map((starship, index) => 
-                    <StarshipItem
+                    <CardItem
                         key={index} 
-                        name={starship.name}
+                        text={starship.name}
                     /> ) 
                 : <Spinner animation="grow"/>}
             </div>

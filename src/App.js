@@ -24,7 +24,7 @@ class App extends React.Component {
                         <Route component={MovieDetails} path={"/movie/:id"} /> 
                         <Route component={Peoples} path={"/peoples"} />                                    
                         <Route component={Planets} path={"/planets"} />                          
-                        <Route component={Starships} path={"/starships"} />                          
+                        <Route component={Starships} path={"/starships"} />                    
                     </Col>
                 </HashRouter>
             </Container>

@@ -1,6 +1,7 @@
 import React from 'react';
-import PeopleItem from '../components/PeopleItem';
 import {Spinner} from 'react-bootstrap';
+
+import CardItem from '../components/CardItem'
 
 class Peoples extends React.Component {
     state = {
@@ -24,10 +25,9 @@ class Peoples extends React.Component {
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                 {peoples.length 
                 ? peoples.map((people, index) => 
-                    <PeopleItem
+                    <CardItem
                         key={index} 
-                        name={people.name}
-                        id={index+1}
+                        text={people.name}
                     /> ) 
                 : <Spinner animation="grow"/>}
             </div>

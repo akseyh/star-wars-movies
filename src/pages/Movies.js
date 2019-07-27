@@ -1,6 +1,7 @@
 import React from 'react';
-import MovieItem from '../components/MovieItem';
 import {Spinner} from 'react-bootstrap';
+
+import CardItem from '../components/CardItem'
 
 class Movies extends React.Component {
     state = {
@@ -21,9 +22,9 @@ class Movies extends React.Component {
                 <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                     {movies.length 
                     ? movies.map((movie, index) =>
-                        <MovieItem
+                        <CardItem
                             key={index} 
-                            data={movie}
+                            text={movie.title}
                         />)
                     : <Spinner animation="grow"/>}
                 </div>
