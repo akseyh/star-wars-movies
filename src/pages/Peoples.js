@@ -1,7 +1,5 @@
 import React from 'react';
-import {Spinner} from 'react-bootstrap';
-
-import CardItem from '../components/CardItem'
+import { Spinner, Card } from 'react-bootstrap';
 
 class Peoples extends React.Component {
     state = {
@@ -22,14 +20,44 @@ class Peoples extends React.Component {
     render() {
         const { peoples } = this.state;
         return (
-            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                {peoples.length 
-                ? peoples.map((people, index) => 
-                    <CardItem
-                        key={index} 
-                        text={people.name}
-                    /> ) 
-                : <Spinner animation="grow"/>}
+            <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center" }}>
+
+                { peoples.length ? peoples.map((people, index) => 
+                    <Card  
+                    bg="dark"
+                    text="white" 
+                    key={index}
+                    style={{ 
+                        margin: "2px",
+                        width: "100%",
+                        height: "auto",
+                        border: "1px solid black",
+                    }}
+                    >
+                        <Card.Header
+                        onClick={() => {
+                            let isDivVisible = document.getElementsByClassName('cardDetail')[{index}.index].style.display === "none" ? 1 : 0;
+                            let newDisplay = isDivVisible ? "block" : "none" 
+                            document.getElementsByClassName('cardDetail')[{index}.index].style.display = newDisplay;
+                        }} > 
+                            {people.name}
+                        </Card.Header>
+                        <Card.Body className="cardDetail" style={{display: "none"}}>
+                            <Card.Text>
+                                <span style={{color: "#F5D63C"}}>Height:</span> {people.height},
+                                <span style={{color: "#F5D63C"}}> Birth Year:</span> {people.birth_year}, 
+                                <span style={{color: "#F5D63C"}}> Eye Color:</span> {people.eye_color}, 
+                                <span style={{color: "#F5D63C"}}> Hair Color</span> {people.hair_color}, 
+                                <span style={{color: "#F5D63C"}}> Skin Color:</span> {people.skin_color}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                ) 
+                    : <Spinner animation="grow"
+                />}
             </div>
         );
     }

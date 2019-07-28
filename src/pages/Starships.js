@@ -1,7 +1,5 @@
 import React from 'react';
-import {Spinner} from 'react-bootstrap';
-
-import CardItem from '../components/CardItem';
+import { Spinner, Card } from 'react-bootstrap';
 
 class Starships extends React.Component {
     state = {
@@ -24,12 +22,37 @@ class Starships extends React.Component {
         const { starships } = this.state;
         return (
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                {starships.length 
-                ? starships.map((starship, index) => 
-                    <CardItem
-                        key={index} 
-                        text={starship.name}
-                    /> ) 
+                {starships.length ? starships.map((starship, index) => 
+                    <Card  
+                    bg="dark"
+                    text="white" 
+                    key={index}
+                    style={{ 
+                        margin: "2px",
+                        width: "100%",
+                        height: "auto",
+                        border: "1px solid black",
+                    }}
+                    onClick={() => {
+                        let isDivVisible = document.getElementsByClassName('cardDetail')[{index}.index].style.display === "none" ? 1 : 0;
+                        let newDisplay = isDivVisible ? "block" : "none" 
+                        document.getElementsByClassName('cardDetail')[{index}.index].style.display = newDisplay;
+                    }
+                    }
+                    >
+                        <Card.Header> {starship.name} </Card.Header>
+                        <Card.Body className="cardDetail" style={{display: "none"}}>
+                            <Card.Text>
+                                <span style={{color: "#F5D63C"}}>Model:</span> {starship.model}, 
+                                <span style={{color: "#F5D63C"}}> Passengers:</span> {starship.passengers}, 
+                                <span style={{color: "#F5D63C"}}> Cargo Capacity:</span> {starship.cargo_capacity}, 
+                                <span style={{color: "#F5D63C"}}> Length:</span> {starship.length}, 
+                                <span style={{color: "#F5D63C"}}> Consumables:</span> {starship.consumables}, 
+                                <span style={{color: "#F5D63C"}}> MGLT:</span> {starship.MGLT}, 
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                ) 
                 : <Spinner animation="grow"/>}
             </div>
         );

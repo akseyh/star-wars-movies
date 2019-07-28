@@ -1,7 +1,5 @@
 import React from 'react';
-import {Spinner} from 'react-bootstrap';
-
-import CardItem from '../components/CardItem';
+import { Spinner, Card } from 'react-bootstrap';
 
 class Planets extends React.Component {
     state = {
@@ -24,12 +22,36 @@ class Planets extends React.Component {
         const { planets } = this.state;
         return (
             <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                {planets.length 
-                ? planets.map((planet, index) => 
-                    <CardItem
-                        key={index} 
-                        text={planet.name}
-                    /> ) 
+                {planets.length ? planets.map((planet, index) => 
+                    <Card  
+                    bg="dark"
+                    text="white" 
+                    key={index}
+                    style={{ 
+                        margin: "2px",
+                        width: "100%",
+                        height: "auto",
+                        border: "1px solid black",
+                    }}
+                    >
+                        <Card.Header
+                        onClick={() => {
+                            let isDivVisible = document.getElementsByClassName('cardDetail')[{index}.index].style.display === "none" ? 1 : 0;
+                            let newDisplay = isDivVisible ? "block" : "none" 
+                            document.getElementsByClassName('cardDetail')[{index}.index].style.display = newDisplay;
+                        }} >
+                            {planet.name} </Card.Header>
+                        <Card.Body className="cardDetail" style={{display: "none"}}>
+                            <Card.Text>
+                                <span style={{color: "#F5D63C"}}>Rotation Period:</span> {planet.rotation_period}, 
+                                <span style={{color: "#F5D63C"}}> Orbital Period:</span> {planet.orbital_period}, 
+                                <span style={{color: "#F5D63C"}}> Diameter:</span> {planet.diameter}, 
+                                <span style={{color: "#F5D63C"}}> Climate:</span> {planet.climate}, 
+                                <span style={{color: "#F5D63C"}}> Gravity:</span> {planet.gravity},
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                ) 
                 : <Spinner animation="grow"/>}
             </div>
         );
