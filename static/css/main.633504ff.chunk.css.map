@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EAAG,QAAS,CAAE,SAAU,CAExB,KACI,oEACJ","file":"main.633504ff.chunk.css","sourcesContent":["* {margin :0; padding: 0}\r\n\r\nbody {\r\n    background-image: url('../img/bg.jpg') ;\r\n}"]}

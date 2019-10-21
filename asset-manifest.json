@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.js": "/star-wars-movies/static/js/main.a50fff51.chunk.js",
-    "main.js.map": "/star-wars-movies/static/js/main.a50fff51.chunk.js.map",
+    "main.css": "/star-wars-movies/static/css/main.633504ff.chunk.css",
+    "main.js": "/star-wars-movies/static/js/main.a353567c.chunk.js",
+    "main.js.map": "/star-wars-movies/static/js/main.a353567c.chunk.js.map",
     "runtime~main.js": "/star-wars-movies/static/js/runtime~main.da02f108.js",
     "runtime~main.js.map": "/star-wars-movies/static/js/runtime~main.da02f108.js.map",
-    "static/js/2.3bb519d3.chunk.js": "/star-wars-movies/static/js/2.3bb519d3.chunk.js",
-    "static/js/2.3bb519d3.chunk.js.map": "/star-wars-movies/static/js/2.3bb519d3.chunk.js.map",
+    "static/js/2.101d174f.chunk.js": "/star-wars-movies/static/js/2.101d174f.chunk.js",
+    "static/js/2.101d174f.chunk.js.map": "/star-wars-movies/static/js/2.101d174f.chunk.js.map",
     "index.html": "/star-wars-movies/index.html",
-    "precache-manifest.3d4f84eafa535cfd777005b8ac2c21b1.js": "/star-wars-movies/precache-manifest.3d4f84eafa535cfd777005b8ac2c21b1.js",
+    "precache-manifest.472fcc4d440dde9b203386a1b0a1228b.js": "/star-wars-movies/precache-manifest.472fcc4d440dde9b203386a1b0a1228b.js",
     "service-worker.js": "/star-wars-movies/service-worker.js",
+    "static/css/main.633504ff.chunk.css.map": "/star-wars-movies/static/css/main.633504ff.chunk.css.map",
+    "static/media/index.css": "/star-wars-movies/static/media/bg.acafda4b.jpg",
     "static/media/star-wars-logo.png": "/star-wars-movies/static/media/star-wars-logo.1b4306c0.png"
   }
 }
